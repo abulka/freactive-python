@@ -44,19 +44,18 @@ Additionally:
 
 # Putting Reactivity back into Flet
 
-Is Flet's reversion to imperative programming a step backwards?  These days I am used to reactive programming, e.g. in vuejs, 
-its nice to be able to update data and have all the UI update automatically.  I like model (state) to UI auto binding.
+Is Flet's use of imperative programming a breath of traditional fresh air or are you used to the features you get with a more  reactive framework?  
+
+These days I am used to reactive programming, e.g. in vuejs, 
+its nice to be able to update data and have all the UI update automatically.  I've gotten used to model (state) to UI auto binding - especially in large complex projects.
 
 ## Possible Solution
 
-Instead of imperitively allowing the Flet UI control event callbacks e.g.
-`on_click`, to update the UI directly, we can use a more reactive programming
-approach to update the UI. 
+I'm loving Flet, however I miss the reactivity of Vuejs and even Flutter. So I put together a solution - instead of imperitively allowing the Flet UI control event callbacks e.g. `on_click`, to update the UI directly, we update a reactive model, which in turn updates the Flet UI.
 
-We do this by introducing a level of indirection
-whereby the Flet UI control events callbacks instead update a model, and then
-the model notifies the UI abstractly, via special observing UI callback
-functions e.g. `update_counter_ui`.  
+We are thus introducing a level of indirection
+whereby the Flet UI control events callbacks update a model, and then
+the model notifies the UI abstractly, via special observing UI callback functions e.g. `update_counter_ui`.  
 
 The benefit of this approach is that the UI
 will be updated automatically whenever the model changes by any other means e.g.
@@ -114,7 +113,9 @@ flet.app(target=main)
 
 See https://flet.dev/
 
-See discord chat https://discord.com/channels/981374556059086931/1000264673284857866
+See Flet discord chat https://discord.com/channels/981374556059086931/1000264673284857866
 
-See [My musings on reactivity](./musings.md)
+See my background note [musings](./musings.md) on reactivity in Vuejs vs Flutter and Flet.
+
+See [My Blog](https://abulka.github.io/)
 
