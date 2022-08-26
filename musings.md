@@ -68,4 +68,4 @@ function incrementCounter() {
 </template>
 ```
 
-See solution in ![README.md](README.md)
+See solution in [README.md](README.md)
