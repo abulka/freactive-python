@@ -109,13 +109,28 @@ def main(page: Page):
 flet.app(target=main)
 ```
 
+## Performance Considerations
+
+Q: Feodor
+
+Interesting idea!
+I'm wondering how that works if you are updating multiple properties of a model at the same time? Would it call `page.update()` on every property update?
+
+A: Andy
+
+@Feodor Thanks! As for the thorny issue of whether `page.update()` is called after each model property update - it depends on what you, the developer, put in the reactive callback handlers. In the example shown above, each reactive callback handler has a call to `page.update()`, so each model property update will trigger a page update - which I guess is not ideal. 
+
+You could theoretically leave out all the calls to page.update() in the reactive callback handlers and instead manually call `page.update()` at some optimal time, which would result in optimal performance.
+
+I can't help wondering if there is a way of hooking into Flet and Flutter in a deeper way, to solve this. 
+
 ## Resources
 
-See https://flet.dev/
+- Flet Project https://flet.dev/
 
-See Flet discord chat https://discord.com/channels/981374556059086931/1000264673284857866
+- Flet discord chat https://discord.com/channels/981374556059086931/1000264673284857866
 
-See my background note [musings](./musings.md) on reactivity in Vuejs vs Flutter and Flet.
+- Andy's background note [musings](./musings.md) on reactivity in Vuejs vs Flutter and Flet
 
-See [My Blog](https://abulka.github.io/)
+- Andy Bulka's [Blog](https://abulka.github.io/) incl. various MVC-style design patterns
 
