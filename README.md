@@ -89,11 +89,13 @@ def main(page: Page):
 
     def update_counter_ui(arg1, arg2=None):
         tb1.value = arg2
-        page.update()
+        # page.update()     # either this
+        tb1.update()        # or this (more efficient)
 
     def update_weather_ui(arg1, arg2=None):
         tb2.value = arg2
-        page.update()
+        # page.update()
+        tb2.update()
 
     # Define the model
 
@@ -123,6 +125,13 @@ A: Andy
 You could theoretically leave out all the calls to page.update() in the reactive callback handlers and instead manually call `page.update()` at some optimal time, which would result in optimal performance.
 
 I can't help wondering if there is a way of hooking into Flet and Flutter in a deeper way, to solve this. 
+
+### Breakthrough: 
+
+Changing each `page.update()` in each reactive callback handler to `YOURCONTROL.update()` in the example `flet_example1.py` works OK. 
+
+Though, I'm actually unclear on when to do page updates as opposed to getting away with mere control updates. Surely there has to be a page.update() eventually somewhere?
+
 
 ## Resources
 

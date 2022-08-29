@@ -36,11 +36,13 @@ def main(page: Page):
 
     def update_counter_ui(arg1, arg2=None):
         tb1.value = arg2
-        page.update()
+        # page.update()     # either this
+        tb1.update()        # or this (more efficient)
 
     def update_weather_ui(arg1, arg2=None):
         tb2.value = arg2
-        page.update()
+        # page.update()
+        tb2.update()
 
     # Define the model
 
