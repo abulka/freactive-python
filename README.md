@@ -130,7 +130,13 @@ I can't help wondering if there is a way of hooking into Flet and Flutter in a d
 
 Changing each `page.update()` in each reactive callback handler to `YOURCONTROL.update()` in the example `flet_example1.py` works OK. 
 
+Q: Andy
+
 Though, I'm actually unclear on when to do page updates as opposed to getting away with mere control updates. Surely there has to be a page.update() eventually somewhere?
+
+A: Feodor
+
+`page.update()`  goes through the entire controls tree and collects/sends all the changes while `Control.update()` collects changes on the control and its children. 
 
 
 ## Resources
